@@ -19,8 +19,11 @@ android {
     }
 }
 
-dependencies {
+def var = dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:22.2.0'
+
 }
+var
