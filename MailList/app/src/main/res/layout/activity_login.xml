@@ -7,4 +7,42 @@
     tools:context=".UI.LoginActivity"
     android:orientation="vertical"
     android:layout_gravity="center_vertical">
+
+    <AutoCompleteTextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:fontFamily="@string/abc_font_family_caption_material" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/activity_general_margin"
+        android:singleLine="true"
+        android:fontFamily="@string/abc_font_family_caption_material" />
+
+    <Button
+        android:id="@+id/email_sign_in_button"
+        style="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_general_margin"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="@dimen/activity_general_margin"
+        android:paddingBottom="@dimen/activity_general_margin"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFF"
+        android:text="@string/action_sign_in"/>
+
 </LinearLayout>
