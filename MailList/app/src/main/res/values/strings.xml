@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MailList</string>
+    <string name="activity_title_compose">Escrever</string>
+    <string name="activity_title_inbox">Caixa de entrada</string>
+    <string name="prompt_email">Digite seu e-mail</string>
+    <string name="prompt_password">Digite sua senha</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_register">Cadastre-se</string>
+    <string name="dialog_warn">Atenção</string>
+    <string name="dialog_success">Sucesso!</string>
+    <string name="compose_to">Para</string>
+    <string name="compose_from">De</string>
+    <string name="compose_subject">Assunto</string>
+    <string name="compose_message">Mensagem</string>
+    <string name="compose_send">Enviar</string>
 </resources>
