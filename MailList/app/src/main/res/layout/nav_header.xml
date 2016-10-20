@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="192dp">
+    android:layout_height="192dp"
+    tools:context=".UI.MainActivity">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +31,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
         <TextView
-            android:id="@+id/headerEmail"
+            android:id="@+id/header_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="aluno@pearson.com"

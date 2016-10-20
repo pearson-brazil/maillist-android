@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">MailList</string>
+    <string name="app_name">Login</string>
     <string name="activity_title_compose">Escrever</string>
     <string name="activity_title_inbox">Caixa de entrada</string>
-    <string name="prompt_email">Digite seu e-mail</string>
+    <string name="prompt_email">Digite seu email</string>
     <string name="prompt_password">Digite sua senha</string>
+    <string name="prompt_name">Digite seu nome</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_register">Cadastre-se</string>
     <string name="dialog_warn">Atenção</string>
@@ -13,4 +14,8 @@
     <string name="compose_subject">Assunto</string>
     <string name="compose_message">Mensagem</string>
     <string name="compose_send">Enviar</string>
+    <string name="title_activity_inbox">Entrada</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

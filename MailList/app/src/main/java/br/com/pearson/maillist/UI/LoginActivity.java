@@ -3,8 +3,10 @@ package br.com.pearson.maillist.UI;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -14,6 +16,7 @@ import android.widget.SeekBar;
 
 import br.com.pearson.maillist.Model.User;
 import br.com.pearson.maillist.R;
+import br.com.pearson.maillist.Utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,12 +32,25 @@ public class LoginActivity extends Activity {
     @BindView(R.id.password)
     EditText passwordEditText;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (Utils.getUserSharedPreferences().contains(Utils.IS_LOGGED_KEY)) {
+            startNextActivity();
+        }
     }
 
     @OnFocusChange({R.id.email, R.id.password})
@@ -70,7 +86,7 @@ public class LoginActivity extends Activity {
     @OnClick(R.id.login)
     public void submit(View view) {
 
-        User user = new User(emailEditText.getText(), passwordEditText.getText());
+        User user = new User(emailEditText.getText(), passwordEditText.getText(), "-");
 
         if (!user.isValidEmail()){
             emailEditText.setError("Email inválido");
@@ -81,15 +97,28 @@ public class LoginActivity extends Activity {
         }
 
         if (user.isValid()) {
-            // navega para próxima tela
-            startNextActivity(view);
+
+            if (!Utils.getUserSharedPreferences().contains(Utils.EMAIL_KEY)) {
+                Utils.showSnackbar(view, "Usuário não cadastrado. Por favor cadastre-se antes de realizar o Login");
+
+            }else if (!Utils.getSharedPreferenceValueForKey(Utils.EMAIL_KEY, "").toString().equals(emailEditText.getText().toString())) {
+
+                Utils.showSnackbar(view, "Usuário " + emailEditText.getText().toString() + " não cadastrado. Por favor cadastre-se antes de realizar o Login");
+
+            }else{
+                Utils.setValueToSharedPreferences(Utils.IS_LOGGED_KEY, "true");
+                // navega para próxima tela
+                startNextActivity();
+            }
+
         }
     }
 
-    @OnClick(R.id.register)
+
+    @OnClick(R.id.login_register)
     public void registerTouched(View view) {
-        Snackbar.make(view, "O cadastro de novos usuários não está disponível no momento.", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     public void dissmisKeyboard() {
@@ -97,9 +126,8 @@ public class LoginActivity extends Activity {
         imm.hideSoftInputFromWindow(passwordEditText.getWindowToken(), 0);
     }
 
-    public void startNextActivity(View view) {
-        Intent intent = new Intent(this, InboxActivity.class);
+    public void startNextActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }
