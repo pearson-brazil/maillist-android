@@ -2,6 +2,7 @@ package br.com.pearson.maillist.UI;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -97,6 +98,8 @@ public class LoginActivity extends Activity {
     }
 
     public void startNextActivity(View view) {
-
+        Intent intent = new Intent(this, InboxActivity.class);
+        startActivity(intent);
     }
+
 }
