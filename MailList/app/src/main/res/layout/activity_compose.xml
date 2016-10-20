@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_compose_celHeight"
+        android:paddingLeft="@dimen/activity_general_margin"
+        android:paddingRight="@dimen/activity_general_margin">
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/compose_from"
+            android:id="@+id/compose_from"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold"
+            android:textColor="#5f000000"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_toRightOf="@+id/compose_from"
+            android:background="#00ffffff"
+            android:textSize="@dimen/text_size_body"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedcdc"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_compose_celHeight"
+        android:paddingLeft="@dimen/activity_general_margin"
+        android:paddingRight="@dimen/activity_general_margin">
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/compose_to"
+            android:id="@+id/compose_to"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold"
+            android:textColor="#5f000000"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_toRightOf="@+id/compose_to"
+            android:background="#00ffffff"
+            android:textSize="@dimen/text_size_body"/>
+        />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedcdc"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_compose_celHeight"
+        android:paddingLeft="@dimen/activity_general_margin"
+        android:paddingRight="@dimen/activity_general_margin"
+        android:inputType="textEmailSubject"
+        android:layout_toRightOf="@+id/compose_subject"
+        android:background="#00ffffff"
+        android:hint="@string/compose_subject"
+        android:textColorHint="#5f000000"
+        android:textSize="@dimen/text_size_body"/>/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedcdc"/>
+
+    <EditText
+        android:paddingLeft="@dimen/activity_general_margin"
+        android:paddingRight="@dimen/activity_general_margin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/compose_message"
+        android:layout_marginTop="16dp"
+        android:background="#00ffffff"
+        android:inputType="textMultiLine"
+        android:textColorHint="#5f000000"
+        android:textSize="@dimen/text_size_body"/>/>
+
+</LinearLayout>

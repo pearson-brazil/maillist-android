@@ -2,11 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:padding="@dimen/activity_general_margin"
     tools:context=".UI.LoginActivity"
-    android:orientation="vertical"
-    android:layout_gravity="center_vertical">
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:text="Login"
+        android:textAlignment="center"
+        android:fontFamily="@string/abc_font_family_title_material"
+        android:forceHasOverlappingRendering="false"
+        android:textSize="36dp"
+        android:textIsSelectable="true" />
 
     <AutoCompleteTextView
         android:id="@+id/email"
@@ -35,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_general_margin"
+        android:text="@string/action_sign_in"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
         android:paddingTop="@dimen/activity_general_margin"
@@ -42,7 +54,11 @@
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/colorAccent"
-        android:textColor="#FFF"
-        android:text="@string/action_sign_in"/>
+        android:textColor="#ddffffff"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

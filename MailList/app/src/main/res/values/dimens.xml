@@ -5,6 +5,10 @@
     <dimen name="activity_general_margin">16dp</dimen>
     <dimen name="activity_general_padding">16dp</dimen>
 
+    <dimen name="activity_compose_celHeight">53dp</dimen>
+    <dimen name="activity_inbox_celHeight">90dp</dimen>
+
+
     <!-- Textos -->
     <dimen name="text_size_body">16dp</dimen>
 </resources>
