@@ -1,5 +1,6 @@
 package br.com.pearson.maillist.UI;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -49,4 +50,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void showAlert(CharSequence message, View view) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
+
+    public void startNextActivity() {
+        Intent intent = new Intent(this, ComposeActivity.class);
+        startActivity(intent);
+    }
+
 }
