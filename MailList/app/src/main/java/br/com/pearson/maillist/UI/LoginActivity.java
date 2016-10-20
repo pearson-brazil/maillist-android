@@ -95,7 +95,7 @@ public class LoginActivity extends Activity {
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(passwordEditText.getWindowToken(), 0);
     }
-    
+
     public void startNextActivity(View view) {
 
     }
