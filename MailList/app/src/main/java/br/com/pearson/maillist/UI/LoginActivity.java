@@ -12,13 +12,16 @@ import android.widget.EditText;
 
 import br.com.pearson.maillist.Model.User;
 import br.com.pearson.maillist.R;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnFocusChange;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     // Controles de entrada
-    private Button loginButton;
-    private EditText passwordEditText;
-    private AutoCompleteTextView emailAutoCompleteTextView;
+    @BindView(R.id.email) AutoCompleteTextView emailAutoCompleteTextView;
+    @BindView(R.id.password) EditText passwordEditText;;
 
 
     @Override
@@ -26,29 +29,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Obtém os controles de entrada definidos no arquivo xml
-        loginButton = (Button)findViewById(R.id.email_sign_in_button);
-        passwordEditText = (EditText)findViewById(R.id.password);
-        emailAutoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.email);
+        ButterKnife.bind(this);
 
-        loginButton.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        // Instancia um novo usuário baseado nos valores dos controles de entrada
+    @OnClick(R.id.email_sign_in_button)
+    public void submit() {
+
         User user = new User(emailAutoCompleteTextView.getText(), passwordEditText.getText());
 
-        if (user.isValid()){    // Verifica se os dados são válidos
-            showAlert("Logado com sucesso!", v);
-        }else{
-            showAlert("E-mail ou senha inválidos.", v);
+        if (!user.isValidEmail()){
+            emailAutoCompleteTextView.setError("E-mail inválido");
+        }
+
+        if (!user.isValidPassword()){
+            passwordEditText.setError("Senha inválida. Sua senha deve conter pelo menos 4 caracteres.");
+        }
+
+        if (user.isValid()) {
+            // navega para a próxima tela
+            startNextActivity();
         }
     }
 
+    @OnFocusChange({R.id.email, R.id.password})
+    public void fieldFocusChanged(View v, boolean hasFocus) {
 
-    public void showAlert(CharSequence message, View view) {
-        Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        User user = new User(emailAutoCompleteTextView.getText(), passwordEditText.getText());
+
+        if (!hasFocus) {
+            if (v.getClass() == emailAutoCompleteTextView.getClass()) {
+                if (!user.isValidEmail()){
+                    emailAutoCompleteTextView.setError("E-mail inválido");
+                }
+            }else{
+                if (!user.isValidPassword()){
+                    passwordEditText.setError("Senha inválida. Sua senha deve conter pelo menos 4 caracteres.");
+                }
+            }
+        }
     }
 
     public void startNextActivity() {
