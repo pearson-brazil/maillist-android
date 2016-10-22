@@ -37,6 +37,10 @@ dependencies {
     // Calligraphy
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
+    // Gson
+    compile 'com.google.code.gson:gson:2.6.2'
+
+
 
 
 }
