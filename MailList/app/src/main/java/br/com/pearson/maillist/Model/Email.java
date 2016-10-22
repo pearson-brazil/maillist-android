@@ -17,6 +17,12 @@ public class Email {
         this.imageUrl = imageUrl;
     }
 
+    public Email(String subject, String from, String message) {
+        this.subject = subject;
+        this.from = from;
+        this.message = message;
+    }
+
     public String getSubject() {
         return subject;
     }
