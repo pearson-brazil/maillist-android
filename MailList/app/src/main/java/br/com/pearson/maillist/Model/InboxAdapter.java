@@ -1,8 +1,11 @@
 package br.com.pearson.maillist.Model;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v4.graphics.ColorUtils;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,7 +66,7 @@ public class InboxAdapter extends BaseAdapter {
         TextView brief = (TextView) view.findViewById(R.id.row_message);
         TextView from = (TextView) view.findViewById(R.id.row_contact);
         TextView subject = (TextView) view.findViewById(R.id.row_subject);
-        ImageView picture = (ImageView) view.findViewById(R.id.contact_picture);
+        final ImageView picture = (ImageView) view.findViewById(R.id.contact_picture);
 
         // Define os respectivos textos dado uma position
         brief.setText(data.get(position).getMessage());
@@ -77,6 +82,23 @@ public class InboxAdapter extends BaseAdapter {
 
         picture.setImageDrawable(drawable);
 
+        if (data.get(position).getImageUrl() != null) {
+            Glide.with(context).load(data.get(position)
+                    .getImageUrl())
+                    .asBitmap()
+                    .centerCrop()
+                    .into(new BitmapImageViewTarget(picture) {
+
+                        @Override
+                        protected void setResource(Bitmap resource) {
+                            RoundedBitmapDrawable circularBitmapDrawable =
+                                    RoundedBitmapDrawableFactory.create(context.getResources(), resource);
+                            circularBitmapDrawable.setCircular(true);
+                            picture.setImageDrawable(circularBitmapDrawable);
+                        }
+                    });
+
+        }
 
         return view;
     }

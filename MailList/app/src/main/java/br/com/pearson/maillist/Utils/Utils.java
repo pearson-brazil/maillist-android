@@ -110,8 +110,14 @@ public class Utils {
                 String subject = emailJson.get("subject").getAsString();
                 String message = emailJson.get("message").getAsString();
 
+                String image = null;
+                if (emailJson.get("image") != null) {
+                    image = emailJson.get("image").getAsString();
+                }
+
+
                 // Instancia e adiciona um novo objeto Email na lista de e-mails
-                emailsList.add(new Email(subject, name, message));
+                emailsList.add(new Email(subject, name, message, image));
             }
         }
 
