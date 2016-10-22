@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_general_margin"
+    >
+
+    <ImageView
+        android:id="@+id/contact_picture"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_marginRight="16dp"/>
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/contact_picture">
+
+        <TextView
+            android:id="@+id/row_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contato"
+            android:maxLines="1"
+            android:layout_marginBottom="4dp"
+            fontPath="fonts/Roboto-Bold.ttf"/>
+
+        <TextView
+            android:id="@+id/row_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assunto"
+            android:maxLines="1"
+            android:layout_marginBottom="4dp"
+            fontPath="fonts/Roboto-Medium.ttf"/>
+
+        <TextView
+            android:id="@+id/row_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at vestibulum odio. Vivamus viverra dignissim dictum. Pellentesque aliquet euismod odio eu accumsan."
+            android:maxLines="1"
+            fontPath="fonts/Roboto-Light.ttf"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

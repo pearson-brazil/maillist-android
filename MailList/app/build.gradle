@@ -31,4 +31,12 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 
 
+    // Imagem circular
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
+    // Calligraphy
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+
+
 }

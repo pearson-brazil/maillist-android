@@ -23,8 +23,8 @@
             android:text="@string/compose_from"
             android:id="@+id/compose_from"
             android:textSize="@dimen/text_size_body"
-            android:textStyle="bold"
-            android:textColor="#5f000000"/>
+            android:textColor="#5f000000"
+            fontPath="fonts/Roboto-Light.ttf"/>
 
         <EditText
             android:layout_width="match_parent"

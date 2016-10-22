@@ -8,6 +8,6 @@
     <dimen name="activity_inbox_celHeight">90dp</dimen>
 
     // text
-    <dimen name="text_size_body">16dp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

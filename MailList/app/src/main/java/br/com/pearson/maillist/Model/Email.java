@@ -8,11 +8,13 @@ public class Email {
     private String from;
     private String to;
     private String message;
+    private String imageUrl;
 
-    public Email(String subject, String from, String message) {
+    public Email(String subject, String from, String message, String imageUrl) {
         this.subject = subject;
         this.from = from;
         this.message = message;
+        this.imageUrl = imageUrl;
     }
 
     public String getSubject() {
@@ -50,4 +52,8 @@ public class Email {
     public String getFirstLetter() {
         return from.substring(0,1);
     }
+
+    public String getImageUrl() { return imageUrl; }
+
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

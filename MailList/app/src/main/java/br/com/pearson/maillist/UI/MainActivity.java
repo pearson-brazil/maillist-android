@@ -39,12 +39,6 @@ public class MainActivity extends BaseActivity {
 
         setupDrawerContent(navigationView);
 
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-
         // Obtém o nome do usuário
         String name = Utils.getSharedPreferenceValueForKey(Utils.NAME_KEY, "Usuário não logado");
 
