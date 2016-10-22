@@ -12,6 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +36,8 @@ import butterknife.OnClick;
 public class InboxFragment extends Fragment {
 
     private InboxInterface composeClickListener;
+    public static final String BASE_URL = "https://dl.dropboxusercontent.com/u/72381225/";
+
 
     @BindView(R.id.inbox_listView) ListView listView;
 
@@ -51,9 +59,29 @@ public class InboxFragment extends Fragment {
     }
 
     public void initListView() {
-        String json = Utils.loadJSONFromAsset("emails.json");
-        listView.setAdapter(new InboxAdapter(this.getContext(), Utils.parseEmails(json)));
+        Ion.with(getContext())
+                .load(BASE_URL+"emails.json")
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        if (result != null) {
+                            if (result.has("emails")) {
+                                JsonArray list = result.get("emails").getAsJsonArray();
+                                Gson gson = new Gson();
+                                String json = gson.toJson(list);
+
+                                if (getContext() != null) {
+                                    listView.setAdapter(new InboxAdapter(getContext(), Utils.parseEmails(json)));
+                                }
+                            }
+                        }
+
+                    }
+                });
     }
+
 
 
     @OnClick(R.id.fab)
