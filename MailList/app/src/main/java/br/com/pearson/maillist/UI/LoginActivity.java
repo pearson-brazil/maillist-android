@@ -61,7 +61,7 @@ public class LoginActivity extends Activity {
         if (!hasFocus) {
             if (v.getClass() == emailEditText.getClass()) {
                 if (!user.isValidEmail()){
-                    emailEditText.setError("Email inválido");
+                    emailEditText.setError("E-mail inválido");
                 }
             }else{
                 if (!user.isValidPassword()){
