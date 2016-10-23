@@ -98,8 +98,7 @@ public class LoginActivity extends Activity {
     }
 
     public void startNextActivity(View view) {
-        Intent intent = new Intent(this, InboxActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }

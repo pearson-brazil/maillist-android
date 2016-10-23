@@ -1,4 +1,4 @@
-<!-- Este DrawerLayout tem duas views filhas em sua raiz  -->
+<!-- This DrawerLayout has two children at the root  -->
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,25 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Este LinearLayout representa o conteúdo da tela  -->
+    <!-- This LinearLayout represents the contents of the screen  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Esta ActionBar/Toolbar é mostrada no topo da tela -->
+        <!-- The ActionBar displayed at the top -->
         <include
             layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- É neste frame que seus Fragments serão colocados -->
+        <!-- The main content view where fragments are loaded -->
         <FrameLayout
             android:id="@+id/flContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:headerLayout="@layout/nav_header"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-
+    <!-- The navigation drawer that comes from the left -->
+    <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:menu="@menu/drawer_view"
+        app:headerLayout="@layout/nav_header"/>
 </android.support.v4.widget.DrawerLayout>

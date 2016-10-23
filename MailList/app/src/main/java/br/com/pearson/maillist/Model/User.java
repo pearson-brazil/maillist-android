@@ -1,7 +1,7 @@
 package br.com.pearson.maillist.Model;
 
 /**
- * Created by pearson on 19/10/16.
+ * Created by pearson on 12/09/16.
  */
 public class User {
     private CharSequence email = "";

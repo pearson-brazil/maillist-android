@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <!-- The ActionBar displayed at the top -->
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_compose_celHeight"
@@ -58,7 +64,7 @@
             android:layout_toRightOf="@+id/compose_to"
             android:background="#00ffffff"
             android:textSize="@dimen/text_size_body"/>
-        />
+            />
     </RelativeLayout>
 
     <View

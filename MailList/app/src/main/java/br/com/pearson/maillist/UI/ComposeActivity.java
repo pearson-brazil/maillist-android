@@ -11,33 +11,16 @@ import br.com.pearson.maillist.R;
 /**
  * Created by pearson on 13/09/16.
  */
-public class ComposeActivity extends AppCompatActivity {
+public class ComposeActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
-        setHomeButton();
-    }
+        setHomeButton(R.drawable.back);
 
-    public void setHomeButton() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        setTitle("Escrever");
     }
 
     @Override
@@ -46,6 +29,4 @@ public class ComposeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.compose_menu, menu);
         return true;
     }
-
-
 }

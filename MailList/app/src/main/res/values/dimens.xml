@@ -3,12 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_general_margin">16dp</dimen>
-    <dimen name="activity_general_padding">16dp</dimen>
 
     <dimen name="activity_compose_celHeight">53dp</dimen>
     <dimen name="activity_inbox_celHeight">90dp</dimen>
 
-
-    <!-- Textos -->
+    // text
     <dimen name="text_size_body">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
