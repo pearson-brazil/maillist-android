@@ -11,11 +11,9 @@
             android:icon="@drawable/ic_outbox"
             android:title="Saída" />
         <item
-            android:id="@+id/nav_third_fragment"
             android:icon="@drawable/ic_trash"
             android:title="Lixo" />
         <item
-            android:id="@+id/nav_fourth_fragment"
             android:icon="@drawable/ic_spam"
             android:title="Spam" />
     </group>
@@ -25,7 +23,8 @@
                 <item
                     android:title="Configurações" />
                 <item
-                    android:title="Ajuda" />
+                    android:id="@+id/nav_logout"
+                    android:title="Logout" />
             </group>
         </menu>
     </item>

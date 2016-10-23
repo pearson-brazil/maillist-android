@@ -5,25 +5,25 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="MailList"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UI.LoginActivity">
-
-        </activity>
-        <activity
-            android:name=".UI.ComposeActivity"
-            android:label="Escrever">
-        </activity>
-        <activity android:name=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".UI.BaseActivity" />
-        <activity android:name=".UI.InboxActivity"/>
+        <activity
+            android:name=".UI.ComposeActivity"
+            android:label="Escrever">
+
+        </activity>
+
+        <activity android:name=".UI.MainActivity"></activity>
+        <activity android:name=".UI.BaseActivity"></activity>
     </application>
 
 </manifest>
