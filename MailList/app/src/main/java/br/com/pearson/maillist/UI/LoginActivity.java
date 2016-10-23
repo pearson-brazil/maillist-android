@@ -3,6 +3,7 @@ package br.com.pearson.maillist.UI;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -29,12 +30,26 @@ public class LoginActivity extends Activity {
     @BindView(R.id.password)
     EditText passwordEditText;
 
+    public static final String USER_DATA = "user_data";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sharedPreferences = getSharedPreferences(USER_DATA, MODE_PRIVATE);
+        if (sharedPreferences.contains("email")) {
+            startNextActivity();
+        }
     }
 
     @OnFocusChange({R.id.email, R.id.password})
@@ -82,8 +97,17 @@ public class LoginActivity extends Activity {
 
         if (user.isValid()) {
             // navega para próxima tela
-            startNextActivity(view);
+            saveUserData();
+            startNextActivity();
         }
+    }
+
+    public void saveUserData () {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(USER_DATA, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("email", emailEditText.getText().toString());
+        editor.commit();
     }
 
     @OnClick(R.id.register)
@@ -97,7 +121,7 @@ public class LoginActivity extends Activity {
         imm.hideSoftInputFromWindow(passwordEditText.getWindowToken(), 0);
     }
 
-    public void startNextActivity(View view) {
+    public void startNextActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

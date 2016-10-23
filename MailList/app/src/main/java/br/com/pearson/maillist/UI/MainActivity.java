@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import br.com.pearson.maillist.Model.InboxInterface;
 import br.com.pearson.maillist.R;
@@ -24,6 +25,7 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @BindView(R.id.nvView) NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

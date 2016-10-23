@@ -90,6 +90,7 @@
         android:background="#dedcdc"/>
 
     <EditText
+        android:id="@+id/message"
         android:paddingLeft="@dimen/activity_general_margin"
         android:paddingRight="@dimen/activity_general_margin"
         android:layout_width="match_parent"
@@ -101,6 +102,7 @@
         android:background="#00ffffff"
         android:inputType="textMultiLine"
         android:textColorHint="#5f000000"
-        android:textSize="@dimen/text_size_body"/>/>
+        android:textSize="@dimen/text_size_body"/>
+
 
 </LinearLayout>
